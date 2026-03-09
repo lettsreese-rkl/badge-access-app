@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Badge Access Management Demo</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0;padding:40px}
+.card{background:white;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
+h1{margin-top:0}
+button{padding:10px 16px;border:none;border-radius:8px;background:#1f2937;color:white;cursor:pointer}
+input,select,textarea{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.small{font-size:12px;color:#666}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Badge Access Management App (Demo)</h1>
+<p>This is a simplified prototype of the SharePoint badge access request application.</p>
+</div>
+
+<div class="card">
+<h2>New Access Request</h2>
+
+<div class="grid">
+<div>
+<label>Requester</label>
+<input placeholder="Your name">
+</div>
+
+<div>
+<label>Requested For</label>
+<input placeholder="Employee name">
+</div>
+
+<div>
+<label>Employee ID</label>
+<input placeholder="A#">
+</div>
+
+<div>
+<label>Department</label>
+<input placeholder="Department">
+</div>
+
+<div>
+<label>Type of Change</label>
+<select>
+<option>Add Access</option>
+<option>Revoke Access</option>
+<option>Termination</option>
+</select>
+</div>
+
+<div>
+<label>Urgency</label>
+<select>
+<option>Low</option>
+<option>Normal</option>
+<option>High</option>
+</select>
+</div>
+</div>
+
+<h3>Restricted Areas</h3>
+
+<label><input type="checkbox"> GMP Warehouse</label><br>
+<label><input type="checkbox"> Manufacturing / CS‑2</label><br>
+<label><input type="checkbox"> QC Labs</label><br>
+<label><input type="checkbox"> IT Server Rooms</label><br>
+
+<br>
+
+<label>Comments</label>
+<textarea rows="4"></textarea>
+
+<br><br>
+
+<button onclick="submitRequest()">Submit Request</button>
+
+</div>
+
+<div class="card" id="requests">
+<h2>Requests Dashboard</h2>
+<p class="small">Demo dashboard showing submitted requests.</p>
+<ul id="requestList"></ul>
+</div>
+
+<script>
+function submitRequest(){
+const name=document.querySelector('input').value||"Requester";
+const list=document.getElementById('requestList');
+const li=document.createElement('li');
+li.innerText="Request submitted by "+name+" — Status: In Approval";
+list.prepend(li);
+alert("Request submitted (demo only)");
+}
+</script>
+
+</body>
+</html>
